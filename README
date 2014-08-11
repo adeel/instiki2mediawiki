@@ -1,0 +1,4 @@
+# instiki2mediawiki
+
+A script that migrates an Instiki installation to a MediaWiki installation.
+Doesn't actually do anything yet!
