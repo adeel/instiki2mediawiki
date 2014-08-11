@@ -65,7 +65,7 @@ def convert_markdown_to_wiki_syntax(path):
 
 def get_db_session(url):
   return sessionmaker(
-    bind=create_engine('sqlite:///../instiki/db/production.db.sqlite3'))()
+    bind=create_engine(url))()
 
 def process_revision(r, p, w, processed):
   """
@@ -81,7 +81,7 @@ def process_revision(r, p, w, processed):
     processed[w.address][p.id][r.id] = {}
   processed[w.address][p.id][r.id] = r.__dict__
 
-def convert(options):
+def migrate(options):
   """
   Accepts the following options (all required):
     `instiki_db`: a database connection url for the Instiki installation

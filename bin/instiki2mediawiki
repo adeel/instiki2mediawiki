@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 from optparse import OptionParser
-import converter
+import migration
 
 if __name__ == "__main__":
   parser = OptionParser("usage: %prog -i INSTIKI_DB -o MEDIAWIK_DB -w MAIN_WEB")
@@ -21,5 +21,5 @@ if __name__ == "__main__":
   if not options.main_web:
     parser.error("missing address of main web")
 
-  converter.convert({k: options.get(k)
+  migration.migrate({k: options.get(k)
     for k in ("instiki_db", "mediawiki_db", "main_web")})
